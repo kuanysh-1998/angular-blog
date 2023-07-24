@@ -1,0 +1,53 @@
+<form [formGroup]="adminForm" (ngSubmit)="submitForm()">
+  <h2>Login as Administrator</h2>
+
+  <div
+    class="form-control"
+    [ngClass]="{
+      invalid:
+        adminForm.get('email')?.touched && adminForm.get('email')?.invalid
+    }"
+  >
+    <label>Email:</label>
+    <input type="email" formControlName="email" />
+    <div
+      class="vlidation"
+      *ngIf="adminForm.get('email')?.touched && adminForm.get('email')?.invalid"
+    >
+      <small *ngIf="adminForm.get('email')?.errors?.['required']"
+        >Please Write Your Email</small
+      >
+      <small *ngIf="adminForm.get('email')?.errors?.['email']"
+        >Email must be email:)</small
+      >
+    </div>
+  </div>
+
+  <div
+    class="form-control"
+    [ngClass]="{
+      invalid:
+        adminForm.get('password')?.touched && adminForm.get('password')?.invalid
+    }"
+  >
+    <label>Password:</label>
+    <input type="password" formControlName="password" />
+    <div
+      class="vlidation"
+      *ngIf="
+        adminForm.get('password')?.touched && adminForm.get('password')?.invalid
+      "
+    >
+      <small *ngIf="adminForm.get('password')?.errors?.['required']"
+        >Write your Password
+      </small>
+      <small *ngIf="adminForm.get('password')?.errors?.['minlength']"
+        >The password must contain minimum 6 symbols
+      </small>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="adminForm.invalid">
+    Login
+  </button>
+</form>
