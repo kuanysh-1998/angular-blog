@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { IFbAuthResponse, IUser } from 'src/app/shared/interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthService {
   constructor(private http: HttpClient) {}
 

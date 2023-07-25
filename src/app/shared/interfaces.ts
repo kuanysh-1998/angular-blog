@@ -16,3 +16,7 @@ export interface IPost {
   content: string;
   date: Date;
 }
+
+export interface ICreateResponse {
+  name?: string;
+}

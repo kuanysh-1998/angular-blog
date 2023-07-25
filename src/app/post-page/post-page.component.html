@@ -1,18 +1,17 @@
 <div class="post">
   <div class="header">
-    <h2>Post Title</h2>
+    <h2>{{ post.title }}</h2>
     <button routerLink="/" class="btn btn-link">Main Page</button>
   </div>
 
   <div class="info">
-    <strong>Author</strong>
-    <small>Date</small>
+    <strong>{{ post.author }}</strong>
+    <small>{{ post.date }}</small>
   </div>
 
   <div>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi eius
-      laboriosam qui et reprehenderit nobis!
-    </p>
+    <quill-view-html [content]="post.content" >
+
+    </quill-view-html>
   </div>
 </div>
